@@ -9,16 +9,16 @@
   <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
   <meta content="Themesbrand" name="author">
   <!-- App favicon -->
-  <link rel="shortcut icon" href="<?=base_url() ?>assets/images/favicon.ico">
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.ico">
 
-  <link href="<?=base_url() ?>assets/libs/chartist/chartist.min.css" rel="stylesheet">
+  <link href="<?= base_url() ?>assets/libs/chartist/chartist.min.css" rel="stylesheet">
 
   <!-- Bootstrap Css -->
-  <link href="<?=base_url() ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+  <link href="<?= base_url() ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
   <!-- Icons Css -->
-  <link href="<?=base_url() ?>assets/css/icons.min.css" rel="stylesheet" type="text/css">
+  <link href="<?= base_url() ?>assets/css/icons.min.css" rel="stylesheet" type="text/css">
   <!-- App Css-->
-  <link href="<?=base_url() ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+  <link href="<?= base_url() ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -33,19 +33,19 @@
           <div class="navbar-brand-box">
             <a href="index.html" class="logo logo-dark">
               <span class="logo-sm">
-                <img src="<?=base_url() ?>assets/images/logo-sm.png" alt="" height="22">
+                <img src="<?= base_url() ?>assets/images/logo-sm.png" alt="" height="22">
               </span>
               <span class="logo-lg">
-                <img src="<?=base_url() ?>assets/images/logo-dark.png" alt="" height="17">
+                <img src="<?= base_url() ?>assets/images/logo-dark.png" alt="" height="17">
               </span>
             </a>
 
             <a href="index.html" class="logo logo-light">
               <span class="logo-sm">
-                <img src="<?=base_url() ?>assets/images/logo-sm.png" alt="" height="22">
+                <img src="<?= base_url() ?>assets/images/logo-sm.png" alt="" height="22">
               </span>
               <span class="logo-lg">
-                <img src="<?=base_url() ?>assets/images/logo-light.png" alt="" height="18">
+                <img src="<?= base_url() ?>assets/images/logo-light.png" alt="" height="18">
               </span>
             </a>
           </div>
@@ -85,7 +85,7 @@
 
           <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-circle header-profile-user" src="<?=base_url() ?>assets/images/users/user-4.jpg" alt="Header Avatar">
+              <img class="rounded-circle header-profile-user" src="<?= base_url() ?>assets/images/users/user-4.jpg" alt="Header Avatar">
             </button>
 
             <div class="dropdown-menu dropdown-menu-end">
@@ -93,7 +93,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="pages-lock-screen.html"><i class="mdi mdi-lock-open-outline font-size-17 align-middle me-1"></i> Lock screen</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item text-danger" href="<?=base_url()?>Login/logout"><i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Logout</a>
+              <a class="dropdown-item text-danger" href="<?= base_url() ?>Login/logout"><i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Logout</a>
             </div>
           </div>
         </div>
@@ -111,22 +111,36 @@
             <li class="menu-title">Main</li>
 
             <li>
-              <a href="index.html" class="waves-effect">
+              <a href="<?= base_url() ?>Dashboard" class="waves-effect">
                 <i class="ti-home"></i>
                 <span>Dashboard</span>
               </a>
             </li>
 
             <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-email"></i>
-                <span>Email</span>
+              <a href="<?= base_url() ?>Category" class="waves-effect">
+                <i class="ti-view-grid"></i>
+                <span>Category</span>
               </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="email-inbox.html">Inbox</a></li>
-
-              </ul>
             </li>
+            <li>
+              <a href="<?= base_url() ?>Setting/pincode" class="waves-effect">
+                <i class="ti-view-grid"></i>
+                <span>Pincode</span></a>
+            </li>
+            <li>
+              <a href="<?= base_url() ?>Setting/banner" class="waves-effect">
+                <i class="ti-view-grid"></i>
+                <span>Banner</span></a>
+            </li>
+
+            <li>
+              <a href="<?= base_url() ?>Product" class="waves-effect">
+                <i class="ti-view-grid"></i>
+                <span>Product</span>
+              </a>
+            </li>
+
           </ul>
         </div>
         <!-- Sidebar -->
@@ -146,23 +160,23 @@
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src="<?=base_url() ?>assets/libs/jquery/jquery.min.js"></script>
-        <script src="<?=base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?=base_url() ?>assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?=base_url() ?>assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?=base_url() ?>assets/libs/node-waves/waves.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/jquery/jquery.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/node-waves/waves.min.js"></script>
 
 
         <!-- Peity chart-->
-        <script src="<?=base_url() ?>assets/libs/peity/jquery.peity.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/peity/jquery.peity.min.js"></script>
 
         <!-- Plugin Js-->
-        <script src="<?=base_url() ?>assets/libs/chartist/chartist.min.js"></script>
-        <script src="<?=base_url() ?>assets/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/chartist/chartist.min.js"></script>
+        <script src="<?= base_url() ?>assets/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js"></script>
 
-        <script src="<?=base_url() ?>assets/js/pages/dashboard.init.js"></script>
+        <script src="<?= base_url() ?>assets/js/pages/dashboard.init.js"></script>
 
-        <script src="<?=base_url() ?>assets/js/app.js"></script>
+        <script src="<?= base_url() ?>assets/js/app.js"></script>
 
 </body>
 
