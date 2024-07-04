@@ -13,10 +13,21 @@ class Category extends CI_Controller
   {
     $this->form_validation->set_rules('cate_name', 'Name', 'trim|required');
     $this->form_validation->set_rules('cate_status', 'Status', 'trim|required');
+    if (empty($_FILES['cate_image']['name'])) {
+      $this->form_validation->set_rules('cate_image', 'image', 'trim|required');
+    }
     if ($this->form_validation->run() == false) {
-      $data['category']=$this->Category_model->all_category('category');
-      $this->load->view('category',$data);
+      $data['category'] = $this->Category_model->all_category('category');
+      $this->load->view('category', $data);
     } else {
+      $config = array(
+        'upload_path' => 'uploads/',
+        'allowed_types' => 'jpg|jpeg|png|gif'
+      );
+      $this->load->library('upload', $config);
+      $this->upload->do_upload('cate_image');
+      $fdata = $this->upload->data();
+      $data['cate_image'] = $fdata['file_name'];
       $data['cate_id'] = mt_rand(11111, 99999);
       $data['cate_name'] = $this->input->post('cate_name');
       $data['parent_id'] = $this->input->post('parent_cate');
@@ -26,5 +37,4 @@ class Category extends CI_Controller
       redirect("Category");
     }
   }
-
 }

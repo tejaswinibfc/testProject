@@ -25,13 +25,13 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <form class="row g-3 " action="<?= base_url() ?>Category/index" method="post">
+          <form class="row g-3 " action="<?= base_url() ?>Category/index" method="post" enctype="multipart/form-data">
             <div class="col-md-6">
               <label for="" class="form-label">Parent Category</label>
               <select class="form-select" name="parent_cate">
                 <option value="0">Parent</option>
-                <?php foreach($category as $key=>$value){?>
-                  <option value="<?= $value->cate_id?>"><?= $value->cate_name?></option>
+                <?php foreach ($category as $key => $value) { ?>
+                  <option value="<?= $value->cate_id ?>"><?= $value->cate_name ?></option>
                 <?php } ?>
               </select>
 
@@ -40,6 +40,11 @@
               <label for="" class="form-label">Category</label>
               <input type="text" class="form-control" id="name" name="cate_name" placeholder="Enter name">
               <span style="color:red;"><?php echo form_error('cate_name') ?></span>
+            </div>
+            <div class="col-md-6">
+              <label for="" class="form-label">Image</label>
+              <input type="file" class="form-control" id="cate_image" name="cate_image" />
+              <span style="color:red;"><?php echo form_error('cate_image') ?></span>
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Status</label>
