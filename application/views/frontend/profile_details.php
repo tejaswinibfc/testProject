@@ -764,7 +764,7 @@
                 <div class="tab-content m-img" id="productDetailsNavContent">
                   <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab" tabindex="0">
                     <div class="tp-product-details-nav-main-thumb">
-                      <img src="<?= base_url("uploads/").$get_product->prod_main_image?>" alt="">
+                      <img src="<?= base_url("uploads/") . $get_product->prod_main_image ?>" alt="">
                     </div>
                   </div>
                   <!-- <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab" tabindex="0">
@@ -832,31 +832,38 @@
 
 
                 <!-- actions -->
-                <div class="tp-product-details-action-wrapper">
-                  <h3 class="tp-product-details-action-title">Quantity</h3>
-                  <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
-                    <div class="tp-product-details-quantity">
-                      <div class="tp-product-quantity mb-15 mr-15">
-                        <span class="tp-cart-minus">
-                          <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          </svg>
-                        </span>
-                        <input class="tp-cart-input" type="text" value="1">
-                        <span class="tp-cart-plus">
-                          <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                          </svg>
-                        </span>
+                <!-- form -->
+                <form method="post" action="<?= base_url() ?>Cart/add_to_cart">
+                  <div class="tp-product-details-action-wrapper">
+                    <h3 class="tp-product-details-action-title">Quantity</h3>
+                    <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
+                      <div class="tp-product-details-quantity">
+                        <div class="tp-product-quantity mb-15 mr-15">
+                          <span class="tp-cart-minus">
+                            <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                          </span>
+                          <input class="tp-cart-input" type="text" name="cart_qty" value="1">
+
+                          <span class="tp-cart-plus">
+                            <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                              <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="tp-product-details-add-to-cart mb-15 w-100">
+                        <input class="tp-cart-input" type="hidden" name="pro_id" value="<?= $get_product->product_id ?>">
+                        <button class="tp-product-details-buy-now-btn w-100">Add To Cart</button>
                       </div>
                     </div>
-                    <div class="tp-product-details-add-to-cart mb-15 w-100">
-                      <button class="tp-product-details-buy-now-btn w-100">Add To Cart</button>
-                    </div>
+                    <!-- <button class="tp-product-details-buy-now-btn w-100">Buy Now</button> -->
                   </div>
-                  <!-- <button class="tp-product-details-buy-now-btn w-100">Buy Now</button> -->
-                </div>
+                </form>
+                <!--  form close -->
                 <div class="tp-product-details-action-sm">
                   <!-- <button type="button" class="tp-product-details-action-sm-btn">
                     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -941,7 +948,7 @@
                           <div class="tp-product-details-desc-item pb-105">
 
                             <div class="row">
-                            
+
                               <div class="col-lg-12">
                                 <div class="tp-product-details-desc-content pt-25">
                                   <!-- <span>Galaxy A8 tablet</span> -->
@@ -1600,9 +1607,11 @@
               </div>
 
               <!-- actions -->
+              <!-- form -->
               <div class="tp-product-details-action-wrapper">
                 <h3 class="tp-product-details-action-title">Quantity</h3>
                 <div class="tp-product-details-action-item-wrapper d-sm-flex align-items-center">
+
                   <div class="tp-product-details-quantity">
                     <div class="tp-product-quantity mb-15 mr-15">
                       <span class="tp-cart-minus">
@@ -1623,8 +1632,10 @@
                     <button class="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
                   </div>
                 </div>
-                <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>
+
+                <!-- <button class="tp-product-details-buy-now-btn w-100">Buy Now</button> -->
               </div>
+              <!--  form close -->
               <div class="tp-product-details-action-sm">
                 <button type="button" class="tp-product-details-action-sm-btn">
                   <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">

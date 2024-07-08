@@ -23,8 +23,8 @@ class Home_model extends CI_Model
   }
 
 
-  public function all_subcategory($tablename, $cate_id)
-  {
-    return $this->db->where(['status' => 1, 'parent_id' => $cate_id])->get($tablename)->result();
-  }
+  // public function all_subcategory($tablename, $cate_id)
+  // {
+  //   return $this->db->where(['status' => 1, 'parent_id' => $cate_id])->get($tablename)->result();
+  // }
 }
