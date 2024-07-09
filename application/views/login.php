@@ -42,7 +42,7 @@
            
             <div class="card-body p-4">
               <div class="p-3">
-                <form method="post" action="<?= base_url() ?>Login/user_login">
+                <form method="post" action="<?= base_url() ?>Admin/user_login">
 
                   <div class="mb-3">
                     <label class="form-label" for="username">Username</label>

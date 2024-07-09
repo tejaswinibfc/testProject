@@ -16,7 +16,17 @@ class Cart extends CI_Controller
   public function index()
   {
     $data['cart'] = $this->Cart_model->get_cart('cart');
+    $data['total_cart'] = $this->Cart_model->total_cart('cart');
     $this->load->view('frontend/cart', $data);
+  }
+
+  public function get_userid()
+  {
+    if (!empty($this->session->userdata('login_id'))) {
+      return $this->session->userdata('login_id');
+    } else {
+      $this->session->userdata('user_id');
+    }
   }
   public function add_to_cart()
   {
@@ -34,7 +44,7 @@ class Cart extends CI_Controller
         'product_qty' => $this->input->post('cart_qty'),
         'product_id' => $product_data->product_id,
         'product_name' => $product_data->product_name,
-        'product_price' => $product_data->mrp,
+        'product_price' => $product_data->selling_price,
         'product_image' => $product_data->prod_main_image,
         'slug' => $product_data->slug,
       );
@@ -63,7 +73,7 @@ class Cart extends CI_Controller
 
   public function delete_cart($product_id)
   {
-    $this->Cart_model->delete_data('cart',$product_id);
+    $this->Cart_model->delete_data('cart', $product_id);
     $this->session->set_flashdata('success', 'Product  deleted to cart');
     redirect("Cart");
   }

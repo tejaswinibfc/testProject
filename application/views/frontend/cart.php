@@ -652,20 +652,21 @@
             </div>
           <?php endif; ?>
           <div class="row">
-            <div class="col-xl-9 col-lg-8">
-              <div class="tp-cart-list mb-25 mr-30">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th colspan="2" class="tp-cart-header-product">Product</th>
-                      <th class="tp-cart-header-price">Price</th>
-                      <th class="tp-cart-header-quantity">Quantity</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php if (!empty($cart)) {
-                      foreach ($cart as $key => $value) { ?>
+            <?php if (!empty($cart)) { ?>
+              <div class="col-xl-9 col-lg-8">
+                <div class="tp-cart-list mb-25 mr-30">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th colspan="2" class="tp-cart-header-product">Product</th>
+                        <th class="tp-cart-header-price">Price</th>
+                        <th class="tp-cart-header-quantity">Quantity</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <?php foreach ($cart as $key => $value) { ?>
                         <tr>
                           <td class="tp-cart-img"><a href="product-details.html"> <img src="<?= base_url('uploads/') . $value->product_image ?>" alt=""></a></td>
                           <td class="tp-cart-title"><a href="product-details.html"><?= $value->product_name ?></a></td>
@@ -697,21 +698,15 @@
                           </td>
                           <input type="hidden" name="product_id[]" value="<?= $value->product_id ?>">
                         </tr>
-                      <?php  }
-                    } else { ?>
-                      <tr>
-                        <td class="tp-cart-img" colspan="4">
-                          <h4>No product in cart</h4>
-                        </td>
-                      </tr>
-                    <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tp-cart-bottom">
-                <div class="row align-items-end">
-                  <div class="col-xl-6 col-md-8">
-                    <!-- <div class="tp-cart-coupon">
+                      <?php  } ?>
+                      <!-- gg -->
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tp-cart-bottom">
+                  <div class="row align-items-end">
+                    <div class="col-xl-6 col-md-8">
+                      <!-- <div class="tp-cart-coupon">
                     <form action="#">
                       <div class="tp-cart-coupon-input-box">
                         <label>Coupon Code:</label>
@@ -722,52 +717,55 @@
                       </div>
                     </form>
                   </div> -->
-                  </div>
-                  <div class="col-xl-6 col-md-4">
-                    <div class="tp-cart-update text-md-end">
-                      <button type="submit" class="tp-cart-update-btn">Update Cart</button>
+                    </div>
+                    <div class="col-xl-6 col-md-4">
+                      <div class="tp-cart-update text-md-end">
+                        <button type="submit" class="tp-cart-update-btn">Update Cart</button>
+                      </div>
                     </div>
                   </div>
-                </div>
 
+                </div>
               </div>
-            </div>
       </form>
       <div class="col-xl-3 col-lg-4 col-md-6">
         <div class="tp-cart-checkout-wrapper">
           <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
             <span class="tp-cart-checkout-top-title">Subtotal</span>
-            <span class="tp-cart-checkout-top-price">$742</span>
+            <span class="tp-cart-checkout-top-price">Rs<?= number_format($total_cart['subTotal'], 2) ?></span>
           </div>
           <div class="tp-cart-checkout-shipping">
             <h4 class="tp-cart-checkout-shipping-title">Shipping</h4>
 
             <div class="tp-cart-checkout-shipping-option-wrapper">
-              <div class="tp-cart-checkout-shipping-option">
-                <input id="flat_rate" type="radio" name="shipping">
-                <label for="flat_rate">Flat rate: <span>$20.00</span></label>
-              </div>
-              <div class="tp-cart-checkout-shipping-option">
-                <input id="local_pickup" type="radio" name="shipping">
-                <label for="local_pickup">Local pickup: <span> $25.00</span></label>
-              </div>
-              <div class="tp-cart-checkout-shipping-option">
-                <input id="free_shipping" type="radio" name="shipping">
-                <label for="free_shipping">Free shipping</label>
-              </div>
+              <?php if ($total_cart['subTotal'] > 499) { ?>
+                <label for="free_shipping"> Free shipping</label>
+                <span><?= number_format($total_cart['delivery'], 2) ?> </span>
+              <?php } else { ?>
+                <label for="free_shipping"> Shipping Charges : </label>
+                <span><?= number_format($total_cart['delivery'], 2) ?> </span>
+              <?php } ?>
             </div>
           </div>
           <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
             <span>Total</span>
-            <span>$724</span>
+            <span>Rs<?= number_format($total_cart['grandTotal'], 2) ?></span>
           </div>
           <div class="tp-cart-checkout-proceed">
-            <a href="checkout.html" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>
+            <a href="<?= base_url() ?>Login/" class="tp-cart-checkout-btn w-100">Proceed to Checkout</a>
           </div>
         </div>
       </div>
-      </div>
-      </div>
+    <?php
+            } else { ?>
+      <tr>
+        <td class="tp-cart-img" colspan="4">
+          <h4>No product in cart</h4>
+        </td>
+      </tr>
+    <?php } ?>
+    </div>
+    </div>
     </section>
     <!-- cart area end -->
 
