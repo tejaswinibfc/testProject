@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -54,3 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['product/(:any)'] = 'home/product_details/$1';
+$route['category/(:any)'] = 'product/product_by_cate/$1';
+// $route['category/(:any)/(:any)'] = 'product/product_by_cate/$1/$1';

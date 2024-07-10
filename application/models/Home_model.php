@@ -19,12 +19,15 @@ class Home_model extends CI_Model
   public function category_name($cate_id)
   {
     $category_name = $this->db->where('cate_id', $cate_id)->get('category')->row();
-    return $category_name->cate_name;
+    if ($category_name) {
+      return $category_name->cate_name;
+    } else {
+      return false;
+    }
   }
 
-
-  // public function all_subcategory($tablename, $cate_id)
-  // {
-  //   return $this->db->where(['status' => 1, 'parent_id' => $cate_id])->get($tablename)->result();
-  // }
+  public function all_subcategory($cate_id)
+  {
+    return $this->db->where(['status' => 1, 'parent_id' => $cate_id])->get('category')->result();
+  }
 }

@@ -80,4 +80,7 @@ class Product extends CI_Controller
     $data['category'] = $this->Category_model->all_subcategory('category', $cate_id);
     echo json_encode($data);
   }
+
+  
+  
 }

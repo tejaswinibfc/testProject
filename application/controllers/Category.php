@@ -31,10 +31,16 @@ class Category extends CI_Controller
       $data['cate_id'] = mt_rand(11111, 99999);
       $data['cate_name'] = $this->input->post('cate_name');
       $data['parent_id'] = $this->input->post('parent_cate');
+      $data['slug'] = $this->slug($data['cate_name']);
       $data['status'] = $this->input->post('cate_status');
       $this->Category_model->insert_data('category', $data);
       $this->session->set_flashdata("success", "Category added successfully");
       redirect("Category");
     }
+  }
+
+  function slug($text)
+  {
+    return strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-', $text));
   }
 }

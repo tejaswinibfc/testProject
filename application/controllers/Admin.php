@@ -9,7 +9,7 @@ class Admin extends CI_Controller
   }
   public function index()
   {
-    $this->load->view('login');
+    // $this->load->view('login');
   }
 
   public function user_login()
@@ -27,13 +27,13 @@ class Admin extends CI_Controller
       $this->load->view('index');
     } else {
       $this->session->set_flashdata('error', "Invalid Credentails");
-      redirect('Login');
+      // redirect('Login');
     }
   }
 
   public function logout()
   {
     $this->session->unset_userdata('User');
-    redirect('Login');
+    // redirect('Login');
   }
 }

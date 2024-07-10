@@ -25,21 +25,23 @@ class Cart extends CI_Controller
     if (!empty($this->session->userdata('login_id'))) {
       return $this->session->userdata('login_id');
     } else {
-      $this->session->userdata('user_id');
+      return $this->session->userdata('user_id');
     }
   }
   public function add_to_cart()
   {
     $productId = $this->input->post('pro_id');
     $userId = $this->session->userdata('user_id');
-    $exits_user = $this->db->where(['product_id' => $productId, 'user_id' => $userId])->get('cart');
+    // print_r($userId);
+    // die;
+    $exits_user = $this->db->where(['product_id' => $productId, 'user_id' => $this->get_userid()])->get('cart');
     if ($exits_user->num_rows()) {
       $this->session->set_flashdata('error', "Product already added to cart");
     } else {
       //get product id from product table
       $product_data = $this->db->where('product_id', $productId)->get('product')->row();
       $data = array(
-        'user_id' => $userId,
+        'user_id' => $this->get_userid(),
         'cart_id' => mt_rand(11111, 99999),
         'product_qty' => $this->input->post('cart_qty'),
         'product_id' => $product_data->product_id,
@@ -56,7 +58,7 @@ class Cart extends CI_Controller
 
   public function update_cart()
   {
-    $userId = $this->session->userdata('user_id');
+    // $userId = $this->session->userdata('user_id');
     $product = $this->input->post('product_id');
     $cart = $this->input->post('cart_qty');
     foreach ($product as $key => $cart_data) {
@@ -65,7 +67,7 @@ class Cart extends CI_Controller
         // 'product_id' => $product[$key],
         'product_qty' => $cart[$key],
       ];
-      $this->db->where(['user_id' => $userId, 'product_id' => $product[$key]])->update('cart', $data);
+      $this->db->where(['user_id' => $this->get_userid(), 'product_id' => $product[$key]])->update('cart', $data);
     }
     $this->session->set_flashdata('success', 'Product  updated to cart');
     redirect("Cart");

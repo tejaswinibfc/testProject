@@ -9,12 +9,12 @@ class Checkout extends CI_Controller
     if (!empty($this->session->userdata('login_id'))) {
       // redirect('checkout');
     } else {
-      redirect('login');
+      echo "ddd";
+      redirect('Login');
     }
   }
   public function index()
   {
-    echo "wewe";
-  //  $this->load->view('frontend/login');
+    echo "checkout page";
   }
 }
